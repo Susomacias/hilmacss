@@ -21,6 +21,7 @@ export default function Objects() {
   function addObject() {
     let css = JSON.parse(localStorage.getItem("css"));
     let obj = {
+      id: Object.keys(css).length + 1,
       nombre: "layer" + (Object.keys(css).length + 1),
       propiedad: Object.keys(css).length + 1,
     };
