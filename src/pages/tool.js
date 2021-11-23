@@ -7,44 +7,46 @@ import CssDraw from "../components/cssDraw";
 import CssForm from "../components/cssForm";
 import HtmlCode from "../components/htmlCode";
 import Provider from "../utils/provider";
+import { DataProvider } from "../utils/DataContext";
+import { CssProvider } from "../utils/cssContext";
 
 let arrHtml = [];
 let arrCss = [];
 
 const Tool = (_) => (
   <Provider>
-  <Container>
-    {useEffect(() => {
-      localStorage.clear();
-      localStorage.setItem("css", JSON.stringify(arrCss));
-      localStorage.setItem("html", JSON.stringify(arrHtml));
-    })}
-    <h1>Herramienta</h1>
-    <Row>
-      <Col>
-        
-          <Element></Element>
-          <Objects></Objects>
-
-      </Col>
-      <Col>
-
-          <CssForm />
-
-      </Col>
-      <Col>
-        <CssDraw />
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <HtmlCode />
-      </Col>
-      <Col>
-        <CssCode />
-      </Col>
-    </Row>
-  </Container>
+    <CssProvider>
+      <DataProvider>
+        <Container>
+          {useEffect(() => {
+            localStorage.clear();
+            localStorage.setItem("css", JSON.stringify(arrCss));
+            localStorage.setItem("html", JSON.stringify(arrHtml));
+          })}
+          <h1>Herramienta</h1>
+          <Row>
+            <Col>
+              <Element></Element>
+              <Objects></Objects>
+            </Col>
+            <Col>
+              <CssForm />
+            </Col>
+            <Col>
+              <CssDraw />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <HtmlCode />
+            </Col>
+            <Col>
+              <CssCode />
+            </Col>
+          </Row>
+        </Container>
+      </DataProvider>
+    </CssProvider>
   </Provider>
 );
 

@@ -1,11 +1,12 @@
 import React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../utils/provider";
 import InputText from "./formsComponents/inputText/inputText";
-import Provider from "../utils/provider";
+import TwoRadioButtons from "./formsComponents/RadioButtons/twoRadioButtons";
+import Provider from "../utils/provider";;
 
 export default function CssForm() {
-  const [state, setState] = useContext(AppContext);
+  const [state] = useContext(AppContext);
   const checkCssData = state.cssData;
 
   return (
@@ -13,48 +14,21 @@ export default function CssForm() {
       <h2>Formulario CSS</h2>
       {checkCssData && (
         <Provider>
-          <InputText inputData={state.cssData.nombre} inputId={state.cssData.id} inputKey="nombre" />
-          <InputText inputData={state.cssData.propiedad} inputId={state.cssData.id} inputKey="propiedad" />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="nombre"
+            inputLabel="Nombre" />
+          <TwoRadioButtons
+            inputId={state.cssData.id}
+            inputKey="classOrId"
+            radioName1="isClass"
+            label1=".class"
+            radioName2="isId"
+            label2="#id"
+            />
         </Provider>
       )}
-
-      <div className="fradio">
-        <input
-          type="radio"
-          id="class"
-          name="select_tag_type"
-          defaultValue="class"
-        />
-        <label htmlFor="class">class</label>
-         {" "}
-        <input type="radio" id="id" name="select_tag_type" defaultValue="id" />
-        <label htmlFor="id">id</label>
-      </div>
-
-      <div className="fradio">
-        <input
-          type="radio"
-          id="image"
-          name="select_input_type"
-          defaultValue="image"
-        />
-        <label htmlFor="image">Imagen</label>
-         {" "}
-        <input
-          type="radio"
-          id="text"
-          name="select_input_type"
-          defaultValue="text"
-        />
-        <label htmlFor="text">Texto</label>
-        <input
-          type="radio"
-          id="none"
-          name="select_input_type"
-          defaultValue="none"
-        />
-        <label htmlFor="none">Ninguno</label>
-      </div>
 
       <div className="finput">
         <label htmlFor="ftext">Texto </label>

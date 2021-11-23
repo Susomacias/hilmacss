@@ -1,0 +1,18 @@
+input{
+    background-color: rgb(48, 48, 48);
+    height:20px;
+    font-size:15px;
+    color:#a6a6a6;
+    border-radius: 2px;
+    transition: color 0.5s;
+    transition: background-color 0.5s ease-out;
+    outline: none;
+    border: 0;
+    
+}
+
+input:focus{
+    color:#cccccc;
+    background-color:#3c3c3c;
+    border: 2px solid rgb(0, 119, 255);
+}

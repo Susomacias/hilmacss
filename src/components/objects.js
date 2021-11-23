@@ -1,42 +1,46 @@
-import { useContext, useEffect, useState} from "react";
+import { useContext, useEffect} from "react";
 import { AppContext } from "../utils/provider";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { CssContext } from "../utils/cssContext";
 
 export default function Objects() {
+
+  let {css} = useContext(CssContext);
+  let {setCss} = useContext(CssContext);
 
   let arrCss = [];
 
   const [state, setState] = useContext(AppContext);
-  const [task, setTasks] = useState(arrCss);
 
   const updateCss = () => {
-    setTasks(addObject());
+    setCss(addObject());
   };
 
   function cssDoc() {
-    localStorage.setItem("css", JSON.stringify(arrCss));
+    localStorage.setItem("css", JSON.stringify(css));
     arrCss = JSON.parse(localStorage.getItem("css"));
   }
 
   function addObject() {
-    let css = JSON.parse(localStorage.getItem("css"));
+    let cssStore = JSON.parse(localStorage.getItem("css"));
     let obj = {
-      id: Object.keys(css).length + 1,
-      nombre: "layer" + (Object.keys(css).length + 1),
-      propiedad: Object.keys(css).length + 1,
+      id: Object.keys(cssStore).length + 1,
+      nombre: "layer" + (Object.keys(cssStore).length + 1),
+      propiedad: Object.keys(cssStore).length + 1,
+      classOrId:"isClass"
     };
-    arrCss.push(obj);
+    css.push(obj);
     cssDoc();
-    console.log(arrCss);
-    let arrCssUpadate = arrCss;
+    let arrCssUpadate = css;
     return arrCssUpadate;
   }
 
+
   useEffect(() => {
-    arrCss = JSON.parse(localStorage.getItem("css"));
-    if (arrCss === null) {
-      arrCss = [];
-      localStorage.setItem("css", JSON.stringify(arrCss));
+    css = JSON.parse(localStorage.getItem("css"));
+    if (css === null) {
+      css = [];
+      localStorage.setItem("css", JSON.stringify(css));
     }
   });
 
@@ -45,16 +49,16 @@ export default function Objects() {
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
     localStorage.setItem("css", JSON.stringify(result));
-    console.log(result);
+    setCss(result);
     return result;
   };
 
-  function cssDataShow(nombre) {
+  function cssDataShow(id) {
     arrCss = JSON.parse(localStorage.getItem("css"));
-    let cssData = arrCss.find((item) => item.nombre == nombre);
-    console.log(cssData.nombre);
-    setState({ ...state, cssData: cssData});
-    console.log(state.cssData);
+    let cssDataSelect = arrCss.find((arrCss) => id == arrCss.id);
+    setState({ ...state, cssData: cssDataSelect});
+    console.log(cssDataSelect);
+    console.log(state);
   }
 
   return (
@@ -75,33 +79,33 @@ export default function Objects() {
             return;
           }
 
-          setTasks((prevTasks) =>
-            reorder(prevTasks, source.index, destination.index)
+          setCss((prevCsss) =>
+            reorder(prevCsss, source.index, destination.index)
           );
         }}
       >
-        <Droppable droppableId="tasks">
+        <Droppable droppableId="css">
           {(droppableProvider) => (
             <ul
               {...droppableProvider.droppableProps}
               ref={droppableProvider.innerRef}
-              className="task-container"
+              className="css-container"
             >
-              {task.map((task, index) => (
+              {css.map((css, index) => (
                 <Draggable
-                  key={task.nombre}
-                  draggableId={task.nombre}
+                  key={css.nombre}
+                  draggableId={css.nombre}
                   index={index}
                 >
                   {(draggableprovider) => (
                     <li
-                      onClick={() => cssDataShow(task.nombre)}
+                      onClick={() => cssDataShow(css.id)}
                       {...draggableprovider.draggableProps}
                       ref={draggableprovider.innerRef}
                       {...draggableprovider.dragHandleProps}
-                      className="task-item"
-                    >
-                      {task.nombre}
+                      className="css-item"
+                    > 
+                      {css.nombre}
                     </li>
                   )}
                 </Draggable>

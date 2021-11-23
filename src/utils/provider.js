@@ -1,6 +1,6 @@
 import {createContext,useState} from 'react';
 
-export default ({ children }) =>{
+export default ({ children }) => {
     const [state,setState] = useState({});
     return (            
             <AppContext.Provider value={[state,setState]}>

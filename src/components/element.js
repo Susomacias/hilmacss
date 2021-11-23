@@ -1,5 +1,4 @@
-import React, { useRef, useContext, useEffect } from "react";
-import { AppContext } from "../utils/provider";
+import React from "react";
 
 const Element = () => {
 
