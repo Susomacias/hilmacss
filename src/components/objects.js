@@ -27,9 +27,13 @@ export default function Objects() {
       id: Object.keys(cssStore).length + 1,
       nombre: "layer" + (Object.keys(cssStore).length + 1),
       propiedad: Object.keys(cssStore).length + 1,
-      classOrId:"isClass"
+      classOrId:"class",
+      ancho:50,
+      alto:50,
+      texto:"",
+      fontSize:20,
     };
-    css.push(obj);
+    css.unshift(obj);
     cssDoc();
     let arrCssUpadate = css;
     return arrCssUpadate;
@@ -57,8 +61,6 @@ export default function Objects() {
     arrCss = JSON.parse(localStorage.getItem("css"));
     let cssDataSelect = arrCss.find((arrCss) => id == arrCss.id);
     setState({ ...state, cssData: cssDataSelect});
-    console.log(cssDataSelect);
-    console.log(state);
   }
 
   return (

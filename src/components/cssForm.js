@@ -18,42 +18,42 @@ export default function CssForm() {
             inputData={state.cssData.nombre}
             inputId={state.cssData.id}
             inputKey="nombre"
-            inputLabel="Nombre" />
+            inputLabel="Nombre"
+            inputType="text" />
           <TwoRadioButtons
             inputId={state.cssData.id}
             inputKey="classOrId"
-            radioName1="isClass"
+            radioName1="class"
             label1=".class"
-            radioName2="isId"
+            radioName2="id"
             label2="#id"
             />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="ancho"
+            inputLabel="Ancho"
+            inputType="number" />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="alto"
+            inputLabel="Alto"
+            inputType="number" />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="texto"
+            inputLabel="Texto"
+            inputType="text" />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="fontSize"
+            inputLabel="Tamaño de Letra"
+            inputType="number" />
         </Provider>
       )}
-
-      <div className="finput">
-        <label htmlFor="ftext">Texto </label>
-        <input type="text" id="ftext" name="ftext" defaultValue="Loren Ipsum" />
-      </div>
-
-      <div className="finput">
-        <label htmlFor="ffile">Imagen </label>
-        <input type="file" id="ffile" name="ffile" />
-      </div>
-
-      <div className="finput">
-        <label htmlFor="width">Ancho </label>
-        <input type="number" id="width" name="width" />
-      </div>
-
-      <div className="finput">
-        <label htmlFor="height">Altura </label>
-        <input type="number" id="height" name="height" />
-      </div>
-
-      <div className="finput">
-        <label htmlFor="fontSize">Tamaño de fuente </label>
-        <input type="number" id="fontSize" name="fontSize" />
-      </div>
     </form>
   );
 }

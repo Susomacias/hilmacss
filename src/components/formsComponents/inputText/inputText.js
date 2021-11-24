@@ -15,7 +15,6 @@ export default function InputText(props) {
   let key = props.inputKey;
   let css = JSON.parse(localStorage.getItem("css"));
 
-
   const handleInputChange = ({ target }) => {
     css = JSON.parse(localStorage.getItem("css")); 
     let indice = css.findIndex(i => i.id === props.inputId);  
@@ -46,7 +45,7 @@ export default function InputText(props) {
       <label htmlFor="fname">{props.inputLabel}</label>
       <div>
         <input
-          type="text"
+          type={props.inputType}
           id="fname"
           name="fname"
           value={inputState}
