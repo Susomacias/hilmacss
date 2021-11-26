@@ -2,8 +2,9 @@ import React from "react";
 import { useContext } from "react";
 import { AppContext } from "../utils/provider";
 import InputText from "./formsComponents/inputText/inputText";
+import InputColor from "./formsComponents/inputColor/inputColor";
 import TwoRadioButtons from "./formsComponents/RadioButtons/twoRadioButtons";
-import Provider from "../utils/provider";;
+import Provider from "../utils/provider";
 
 export default function CssForm() {
   const [state] = useContext(AppContext);
@@ -52,6 +53,7 @@ export default function CssForm() {
             inputKey="fontSize"
             inputLabel="Tamaño de Letra"
             inputType="number" />
+          <InputColor id={state.cssData.id}/>
         </Provider>
       )}
     </form>

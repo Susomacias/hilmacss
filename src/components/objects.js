@@ -32,6 +32,10 @@ export default function Objects() {
       alto:50,
       texto:"",
       fontSize:20,
+      colorMode:"solid",
+      color:{c1:"#ffffff", t1:"ff"},
+      linearGradientDirection:180,
+
     };
     css.unshift(obj);
     cssDoc();
@@ -59,7 +63,7 @@ export default function Objects() {
 
   function cssDataShow(id) {
     arrCss = JSON.parse(localStorage.getItem("css"));
-    let cssDataSelect = arrCss.find((arrCss) => id == arrCss.id);
+    let cssDataSelect = arrCss.find((arrCss) => id === arrCss.id);
     setState({ ...state, cssData: cssDataSelect});
   }
 

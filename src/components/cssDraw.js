@@ -23,7 +23,7 @@ export default function CssDraw() {
         <div 
           className={css.nombre}
           style={{
-            backgroundColor:"red",
+            backgroundColor:"#ffffff",
             width:css.ancho+"px",
             height:css.alto+"px",
             fontSize:css.fontSize+"px",

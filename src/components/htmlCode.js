@@ -21,10 +21,10 @@ export default function HtmlCode() {
     {css.map((css) => (
       <div key={css.id}>
         <span>&nbsp;&nbsp;&nbsp;{init} {css.classOrId}="{css.nombre}"{close}</span>
-        {css.texto != "" ?
+        {css.texto !== "" ?
           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{css.texto}</div> : end
         }
-        {css.texto != "" &&
+        {css.texto !== "" &&
           <div>&nbsp;&nbsp;&nbsp;{end}</div>
         } 
       </div>

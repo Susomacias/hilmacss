@@ -1,11 +1,11 @@
 import React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { HtmlContext } from "../utils/htmlContext";
 
 const Element = () => {
 
   const [inputState, setInputState] = useState("myCssElement");
-  const {html, setHtml} = useContext(HtmlContext);
+  const {setHtml} = useContext(HtmlContext);
   const [classOrIdValue, setClassOrIdValue] = useState("class");
 
   const handleInputChange = ({ target }) => {
