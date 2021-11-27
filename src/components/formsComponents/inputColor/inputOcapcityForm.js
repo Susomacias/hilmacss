@@ -3,10 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../../utils/DataContext";
 import { CssContext } from "../../../utils/cssContext";
 
-export default function InputColorForm(props) {
+export default function InputOpacityForm(props) {
+
   const { setData } = useContext(DataContext);
-  let { css } = useContext(CssContext);
-  let { setCss } = useContext(CssContext);
+  let {css} = useContext(CssContext);
+  let {setCss} = useContext(CssContext);
 
   const [inputState, setInputState] = useState(props.inputData);
 
@@ -14,16 +15,16 @@ export default function InputColorForm(props) {
     let css = JSON.parse(localStorage.getItem("css"));
     setInputState(inputState);
     setInputState(target.value);
-    const arrCss = css.map(function (c) {
-      if (c.id === props.inputId + 1) {
-        c.color.map(function (c) {
-          if (c.cId === props.colorId) {
-            c.c = target.value;
+    const arrCss=css.map(function (t) {
+      if (t.id === props.inputId+1) {
+        t.color.map(function (t) {
+          if (t.cId === props.colorId) {
+            t.t = target.value;
           }
-          return c;
+          return t;
         });
       }
-      return c;
+      return t;
     });
     localStorage.setItem("css", JSON.stringify(arrCss));
     setData(arrCss[props.inputId]);
@@ -31,24 +32,26 @@ export default function InputColorForm(props) {
   };
 
   useEffect(() => {
-    css = JSON.parse(localStorage.getItem("css"));
+    css = JSON.parse(localStorage.getItem("css")); 
     css.map(function (c) {
-      if (c.id === props.inputId + 1) {
-        setInputState(c.color[props.colorId - 1].c);
-      }
-      return c;
-    });
+        if (c.id === props.inputId + 1) {
+          setInputState(c.color[props.colorId - 1].t);
+        }
+        return c;
+      });
   });
 
   return (
     <div className="finput">
-      <label htmlFor="fname">Color</label>
+      <label htmlFor={"opacity" + props.inputId}>Opacidad</label>
 
       <div>
         <input
-          type="color"
-          id={"color" + props.inputId}
-          name={"color" + props.inputId}
+          type="number"
+          min="0"
+          max="255"
+          id={"opacity" + props.inputId}
+          name={"opacity" + props.inputId}
           value={inputState}
           onChange={handleInputChange}
         />

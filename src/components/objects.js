@@ -33,11 +33,11 @@ export default function Objects() {
       texto:"",
       fontSize:20,
       colorMode:"solid",
-      color:{c1:"#ffffff", t1:"ff"},
+      color:[{cId:1, c:"#ffffff", t:"255"}],
       linearGradientDirection:180,
 
     };
-    css.unshift(obj);
+    css.push(obj);
     cssDoc();
     let arrCssUpadate = css;
     return arrCssUpadate;

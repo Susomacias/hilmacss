@@ -21,7 +21,7 @@ const Tool = (_) => (
         <DataProvider>
           <Container>
             {useEffect(() => {
-              localStorage.clear();
+             // localStorage.clear();
               localStorage.setItem("css", JSON.stringify(arrCss));
               localStorage.setItem("html", JSON.stringify(arrHtml));
             })}
