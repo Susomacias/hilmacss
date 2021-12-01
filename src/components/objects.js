@@ -35,6 +35,21 @@ export default function Objects() {
       colorMode:"solid",
       color:[{cId:1, c:"#ffffff", t:"255"}],
       linearGradientDirection:180,
+      position:"static",
+      locationX:50,
+      locationY:50,
+      margenSuperior:0,
+      margenDerecho:0,
+      margenInferior:0,
+      margenIzquierdo:0,
+      boxShadowX:0,
+      boxShadowY:0,
+      boxShadowBlur:0,
+      boxShadowZ:0,
+      boxShadowColor:"#000000",
+      boxShadowColorOpacity:"255",
+      boxShadowTipe:"",
+
 
     };
     css.push(obj);

@@ -73,21 +73,21 @@ export default function InputColor(props) {
             inputKey="colorMode"
             radioName1="solid"
             label1="Sólido"
-            radioName2="linearGradient"
+            radioName2="linear-gradient"
             label2="Gradiente Lineal"
-            radioName3="radialGradient"
+            radioName3="radial-gradient"
             label3="Gradiente Radial"
           />
           {css[props.id - 1].colorMode === "solid" ? (
             <div>
               <InputColorForm
                 inputData={css[props.id - 1].color[0].c}
-                colorId="1"
+                colorId={color[0].cId}
                 inputId={props.id - 1}
               />
               <InputOpacityForm
                 inputData={css[props.id - 1].color[0].t}
-                colorId="1"
+                colorId={color[0].cId}
                 inputId={props.id - 1}
               />
             </div>

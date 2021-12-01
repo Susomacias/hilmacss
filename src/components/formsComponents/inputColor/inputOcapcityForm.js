@@ -35,7 +35,12 @@ export default function InputOpacityForm(props) {
     css = JSON.parse(localStorage.getItem("css")); 
     css.map(function (c) {
         if (c.id === props.inputId + 1) {
-          setInputState(c.color[props.colorId - 1].t);
+          c.color.map(function (c) {
+            if (c.cId === props.colorId) {
+                setInputState(c.t);
+            }
+            return c;
+          });
         }
         return c;
       });

@@ -16,8 +16,22 @@ export default function ThreeRadioButtons(props) {
       }
       return c;
     });
+
     localStorage.setItem("css", JSON.stringify(arrCss));
     setCss(arrCss);
+
+    if(props.inputKey == "position" && arrCss[props.inputId-1].position == "relative"){
+      let relativeObject = arrCss[props.inputId-1];
+      let arrCssPosition = arrCss.map(function(c){
+        if(c.position !== "static"){
+          c.position = "absolute";
+        }
+        return c;
+      })
+      arrCssPosition[props.inputId-1].position = "relative";
+      localStorage.setItem("css", JSON.stringify(arrCssPosition));
+      setCss(arrCssPosition);
+    }
   };
 
   useEffect(() => {

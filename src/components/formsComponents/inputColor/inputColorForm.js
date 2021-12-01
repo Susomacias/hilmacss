@@ -33,11 +33,16 @@ export default function InputColorForm(props) {
   useEffect(() => {
     css = JSON.parse(localStorage.getItem("css"));
     css.map(function (c) {
-      if (c.id === props.inputId + 1) {
-        setInputState(c.color[props.colorId - 1].c);
-      }
-      return c;
-    });
+        if (c.id === props.inputId + 1) {
+          c.color.map(function (c) {
+            if (c.cId === props.colorId) {
+                setInputState(c.c);
+            }
+            return c;
+          });
+        }
+        return c;
+      });
   });
 
   return (

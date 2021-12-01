@@ -11,7 +11,7 @@ import { DataProvider } from "../utils/DataContext";
 import { CssProvider } from "../utils/cssContext";
 import { HtmlProvider } from "../utils/htmlContext";
 
-let arrHtml = [{ nombre: "myCssElement", classOrId: "class" }];
+let arrHtml = [{ nombre: "myCssElement", classOrId: "class", flexDirection:"column" }];
 let arrCss = [];
 
 const Tool = (_) => (

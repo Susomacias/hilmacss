@@ -7,6 +7,7 @@ const Element = () => {
   const [inputState, setInputState] = useState("myCssElement");
   const {setHtml} = useContext(HtmlContext);
   const [classOrIdValue, setClassOrIdValue] = useState("class");
+  const [flexDirectionValue, setFlexDirectionValue] = useState("column");
 
   const handleInputChange = ({ target }) => {
     setInputState(target.value);
@@ -22,6 +23,14 @@ const Element = () => {
     htmlCoI[0].classOrId = e.target.value;
     localStorage.setItem("html", JSON.stringify(htmlCoI));
     setHtml(htmlCoI);
+  };
+
+  const flexDirectionHandleChange = (e) => {
+    setFlexDirectionValue(e.target.value);
+    let htmlFlexDir = JSON.parse(localStorage.getItem("html"));
+    htmlFlexDir[0].flexDirection = e.target.value;
+    localStorage.setItem("html", JSON.stringify(htmlFlexDir));
+    setHtml(htmlFlexDir);
   };
 
   return (
@@ -47,9 +56,7 @@ const Element = () => {
           onChange={ClassOrIdHandleChange}
         />
         <label htmlFor="class">.class</label>
-      </div>
-      <div>
-      <input
+        <input
         type="radio"
         id="id"
         name="id"
@@ -58,6 +65,27 @@ const Element = () => {
         onChange={ClassOrIdHandleChange}
       />
       <label htmlFor="id">#id</label>
+        
+      </div>
+      <div>
+      <input
+        type="radio"
+        id="row"
+        name="row"
+        value="row"
+        checked={flexDirectionValue === "row" ? true : false}
+        onChange={flexDirectionHandleChange}
+      />
+      <label htmlFor="row">Fila</label>
+      <input
+        type="radio"
+        id="column"
+        name="column"
+        value="column"
+        checked={flexDirectionValue === "column" ? true : false}
+        onChange={flexDirectionHandleChange}
+      />
+      <label htmlFor="column">Columna</label>
     </div>
     </form>
   );

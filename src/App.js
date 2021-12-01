@@ -10,21 +10,32 @@ import Tool from "./pages/tool";
 
 function App() {
 
-  let arrHtml = [{ nombre: "myCssElement", classOrId: "class" }];
+  let arrHtml = [{ nombre: "myCssElement", classOrId: "class", flexDirection: "column" }];
   let arrCss = [{
-    "id": 4,
-    "nombre": "layer4",
-    "propiedad": 4,
+    "id": 1,
+    "nombre": "layer1",
+    "propiedad": 1,
     "classOrId": "class",
     "ancho": 50,
     "alto": 50,
     "texto": "",
     "fontSize": 20,
     "colorMode": "solid",
-    "color": {
-        "c1": "#ffffff",
-        "t1": "ff"
-    }
+    "color": [
+        {
+            "cId": 1,
+            "c": "#ffffff",
+            "t": "255"
+        }
+    ],
+    "linearGradientDirection": 180,
+    "position": "static",
+    "locationX": 50,
+    "locationY": 50,
+    "margenSuperior": 0,
+    "margenDerecho": 0,
+    "margenInferior": 0,
+    "margenIzquierdo": 0
 }];
 
   //localStorage.clear();
