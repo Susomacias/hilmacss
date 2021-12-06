@@ -7,8 +7,11 @@ export default function CssDraw() {
   let { html } = useContext(HtmlContext);
   let { css } = useContext(CssContext);
 
-  const staticAndRelative = cssStaticAndRelative => cssStaticAndRelative.position === "static" || cssStaticAndRelative.position === "relative";
-  const absolute = cssStaticAndRelative => !staticAndRelative(cssStaticAndRelative)
+  const staticAndRelative = (cssStaticAndRelative) =>
+    cssStaticAndRelative.position === "static" ||
+    cssStaticAndRelative.position === "relative";
+  const absolute = (cssStaticAndRelative) =>
+    !staticAndRelative(cssStaticAndRelative);
   const cssFather = css.filter(staticAndRelative);
   const cssChildren = css.filter(absolute);
 
@@ -18,14 +21,27 @@ export default function CssDraw() {
       hex = "0" + hex;
     }
     return hex;
-  }  
+  }
+
+  function changeBackground(e) {
+    e.target.style.background = 'red';
+  }
 
   return (
-    <div>
+    <div
+      style={{
+        height: "100vh",
+        position: "relative",
+      }}
+    >
       <div
         className={html[0].nombre}
         style={{
           display: "flex",
+          position: "absolute",
+          transform: "translate(-50%, -50%)",
+          top: "50%",
+          left: "50%",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: html[0].flexDirection,
@@ -57,33 +73,143 @@ export default function CssDraw() {
                       ) +
                       ")"
                     : "none",
-                  width:(css.ancho > 0 ? css.ancho + "px": null  ) ,
-                  height: (css.alto > 0 ? css.alto + "px": null) ,
-                  marginTop:css.margenSuperior + "px",
-                  marginBottom:css.margenInferior + "px",
-                  marginLeft:css.margenIzquierdo + "px",
-                  marginRight:css.margenDerecho + "px",
-                  
+                width: css.ancho > 0 ? css.ancho + "px" : null,
+                height: css.alto > 0 ? css.alto + "px" : null,
+                marginTop: css.margenSuperior + "px",
+                marginBottom: css.margenInferior + "px",
+                marginLeft: css.margenIzquierdo + "px",
+                marginRight: css.margenDerecho + "px",
 
-                position:css.position,
-                top: (css.position === "absolute" ? css.locationY+ "%" : "none"),
-                right: (css.position === "absolute" ? css.locationX+ "%" : "none"),
-                transform: (css.position === "absolute" ? "translate(50%, -50%)" : null),
+                position: css.position,
+                top: css.position === "absolute" ? css.locationY + "%" : "none",
+                right:
+                  css.position === "absolute" ? css.locationX + "%" : "none",
+                transform:
+                  css.position === "absolute" ? "translate(50%, -50%)" : null,
 
                 fontSize: css.fontSize + "px",
                 textAlign: "center",
-                boxShadow: (css.boxShadowX == 0 &&
+                boxShadow:
+                  css.boxShadowX == 0 &&
                   css.boxShadowY == 0 &&
                   css.boxShadowBlur == 0 &&
-                  css.boxShadowZ == 0 ? (null) : (  
-                    
-                      css.boxShadowX + "px "+ css.boxShadowY+ "px " +css.boxShadowBlur+ "px " +css.boxShadowZ+ "px " +css.boxShadowColor + toHex(parseInt(css.boxShadowColorOpacity, 10)) + " "+css.boxShadowTipe
-                    
-                  ))
-              }}
+                  css.boxShadowZ == 0
+                    ? null
+                    : css.boxShadowX +
+                      "px " +
+                      css.boxShadowY +
+                      "px " +
+                      css.boxShadowBlur +
+                      "px " +
+                      css.boxShadowZ +
+                      "px " +
+                      css.boxShadowColor +
+                      toHex(parseInt(css.boxShadowColorOpacity, 10)) +
+                      " " +
+                      css.boxShadowTipe,
+                borderTop:
+                  css.borderTopStyle +
+                  "px solid" +
+                  css.borderColor +
+                  toHex(parseInt(css.borderColorOpacity, 10)),
+                borderBottom:
+                  css.borderBottomStyle +
+                  "px solid" +
+                  css.borderColor +
+                  toHex(parseInt(css.borderColorOpacity, 10)),
+                borderLeft:
+                  css.borderLeftStyle +
+                  "px solid" +
+                  css.borderColor +
+                  toHex(parseInt(css.borderColorOpacity, 10)),
+                borderRight:
+                  css.borderRightStyle +
+                  "px solid" +
+                  css.borderColor +
+                  toHex(parseInt(css.borderColorOpacity, 10)),
+
+                zIndex: css.zIndex,
+                borderRadius:
+                  css.borderRadiusSI +
+                  "px" +
+                  " " +
+                  css.borderRadiusSD +
+                  "px" +
+                  " " +
+                  css.borderRadiusII +
+                  "px" +
+                  " " +
+                  css.borderRadiusID +
+                  "px",
+                transform:
+                  "rotate(" +
+                  css.transformRotateZ +
+                  "deg) rotateX(" +
+                  css.transformRotateX +
+                  "deg) rotateY(" +
+                  css.transformRotateY +
+                  "deg) skew(" +
+                  css.transformSkewX +
+                  "deg, " +
+                  css.transformSkewY +
+                  "deg)",
+                fontWeight: css.fontWeight,
+                fontStyle: css.fontStyle,
+                paddingTop: css.paddingTop + "px",
+                paddingBottom: css.paddingBottom + "px",
+                paddingLeft: css.paddingLeft + "px",
+                paddingRight: css.paddingRight + "px",
+                wordWrap: css.wordWrap,
+                color: css.textColor + toHex(parseInt(css.textOpacity, 10)),
+                textShadow:
+                  "0 0" +
+                  css.webKitTextStroke +
+                  "px " +
+                  css.webKitTextStrokeColor +
+                  toHex(parseInt(css.webKitTextStrokeOpacity, 10)) +
+                  ", -" +
+                  css.webKitTextStroke +
+                  "px -" +
+                  css.webKitTextStroke +
+                  "px 0" +
+                  css.webKitTextStrokeColor +
+                  toHex(parseInt(css.webKitTextStrokeOpacity, 10)) +
+                  "," +
+                  css.webKitTextStroke +
+                  "px -" +
+                  css.webKitTextStroke +
+                  "px 0" +
+                  css.webKitTextStrokeColor +
+                  toHex(parseInt(css.webKitTextStrokeOpacity, 10)) +
+                  ", -" +
+                  css.webKitTextStroke +
+                  "px " +
+                  css.webKitTextStroke +
+                  "px 0" +
+                  css.webKitTextStrokeColor +
+                  toHex(parseInt(css.webKitTextStrokeOpacity, 10)) +
+                  "," +
+                  css.webKitTextStroke +
+                  "px " +
+                  css.webKitTextStroke +
+                  "px 0" +
+                  css.webKitTextStrokeColor +
+                  toHex(parseInt(css.webKitTextStrokeOpacity, 10)) +
+                  "," +
+                  css.textShadowX +
+                  "px " +
+                  css.textShadowY +
+                  "px " +
+                  css.textShadowBlur +
+                  "px " +
+                  css.textShadowColor +
+                  toHex(parseInt(css.textShadowColorOpacity, 10)),                  
+              }
+              
+            }
             >
               {css.texto}
-              {css.position === "relative" && (
+              {css.position === "relative" &&
                 cssChildren.map((c) => (
                   <div key={c.id}>
                     <div
@@ -99,47 +225,100 @@ export default function CssDraw() {
                               c.linearGradientDirection +
                               "deg," +
                               c.color.map(
-                                (color) => color.c + toHex(parseInt(color.t, 10))
+                                (color) =>
+                                  color.c + toHex(parseInt(color.t, 10))
                               ) +
                               ")"
                             : c.colorMode === "radial-gradient"
                             ? c.colorMode +
                               "(" +
                               c.color.map(
-                                (color) => color.c + toHex(parseInt(color.t, 10))
+                                (color) =>
+                                  color.c + toHex(parseInt(color.t, 10))
                               ) +
                               ")"
                             : "none",
-                        width:(c.ancho === 0 ?"none":(c.ancho + "px") ) ,
-                        height: (c.alto === 0 ?"none":(c.alto + "px") ) ,
-                        marginTop:c.margenSuperior + "px",
-                        marginBottom:c.margenInferior + "px",
-                        marginLeft:c.margenIzquierdo + "px",
-                        marginRight:c.margenDerecho + "px",
-                
-                        position:c.position,
-                        top: (c.position === "absolute" ? c.locationY+ "%" : "none"),
-                        right: (c.position === "absolute" ? c.locationX+ "%" : "none"),
-                        transform: (c.position === "absolute" ? "translate(50%, -50%)" : "none"),
-                
+                        width: c.ancho === 0 ? "none" : c.ancho + "px",
+                        height: c.alto === 0 ? "none" : c.alto + "px",
+                        marginTop: c.margenSuperior + "px",
+                        marginBottom: c.margenInferior + "px",
+                        marginLeft: c.margenIzquierdo + "px",
+                        marginRight: c.margenDerecho + "px",
+
+                        position: c.position,
+                        top:
+                          c.position === "absolute"
+                            ? c.locationY + "%"
+                            : "none",
+                        right:
+                          c.position === "absolute"
+                            ? c.locationX + "%"
+                            : "none",
+                        transform:
+                          c.position === "absolute"
+                            ? "translate(50%, -50%)"
+                            : "none",
+
                         fontSize: c.fontSize + "px",
                         textAlign: "center",
 
-                        boxShadow: (c.boxShadowX == 0 &&
+                        boxShadow:
+                          c.boxShadowX == 0 &&
                           c.boxShadowY == 0 &&
                           c.boxShadowBlur == 0 &&
-                          c.boxShadowZ == 0 ? (null) : (  
-                            
-                              c.boxShadowX + "px "+ c.boxShadowY+ "px " +c.boxShadowBlur+ "px " +c.boxShadowZ+ "px " +c.boxShadowColor + toHex(parseInt(c.boxShadowColorOpacity, 10)) + " "+c.boxShadowTipe
-                            
-                          ))
+                          c.boxShadowZ == 0
+                            ? null
+                            : c.boxShadowX +
+                              "px " +
+                              c.boxShadowY +
+                              "px " +
+                              c.boxShadowBlur +
+                              "px " +
+                              c.boxShadowZ +
+                              "px " +
+                              c.boxShadowColor +
+                              toHex(parseInt(c.boxShadowColorOpacity, 10)) +
+                              " " +
+                              c.boxShadowTipe,
+                        zIndex: c.zIndex,
+                        borderRadius:
+                          c.borderRadiusSI +
+                          "px" +
+                          " " +
+                          c.borderRadiusSD +
+                          "px" +
+                          " " +
+                          c.borderRadiusII +
+                          "px" +
+                          " " +
+                          c.borderRadiusID +
+                          "px",
+                        transform:
+                          "rotate(" +
+                          c.transformRotateZ +
+                          "deg) rotateX(" +
+                          c.transformRotateX +
+                          "deg) rotateY(" +
+                          c.transformRotateY +
+                          "deg) skew(" +
+                          c.transformSkewX +
+                          "deg, " +
+                          c.transformSkewY +
+                          "deg)",
+                        fontWeight: c.fontWeight,
+                        fontStyle: c.fontStyle,
+                        paddingTop: c.paddingTop + "px",
+                        paddingBottom: c.paddingBottom + "px",
+                        paddingLeft: c.paddingLeft + "px",
+                        paddingRight: c.paddingRight + "px",
+                        textAlign: c.textAlign,
                       }}
+                      
                     >
                       {c.texto}
                     </div>
                   </div>
-                ))
-              )}
+                ))}
             </div>
           </div>
         ))}

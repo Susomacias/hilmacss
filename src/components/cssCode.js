@@ -93,6 +93,43 @@ export default function CssCode() {
             )
             }
 
+            {css.borderTopStyle == 0 &&
+              css.borderRightStyle == 0 &&
+              css.borderBottomStyle == 0 &&
+              css.borderLeftStyle == 0 ? (null) : (
+                css.borderTopStyle == css.borderRightStyle &&
+                css.borderTopStyle == css.borderBottomStyle &&
+                css.borderTopStyle == css.borderLeftStyle ? (
+                  <div>
+                  {space}  border-style: {css.borderTopStyle}px solid {css.borderColor + toHex(parseInt(css.borderColorOpacity, 10))};
+                  </div>
+                 ) : (
+                  <div>
+                  {css.borderTopStyle == 0 ? null : (
+                    <div>
+                      {space} border-top-style: {css.borderTopStyle}px solid {css.borderColor + toHex(parseInt(css.borderColorOpacity, 10))};
+                    </div>
+                  )}
+                  {css.borderRightStyle == 0 ? null : (
+                    <div>
+                      {space} border-right-style: {css.borderRightStyle}px solid {css.borderColor + toHex(parseInt(css.borderColorOpacity, 10))};
+                    </div>
+                  )}
+                  {css.borderBottomStyle == 0 ? null : (
+                    <div>
+                      {space} border-bottom-style: {css.borderBottomStyle}px solid {css.borderColor + toHex(parseInt(css.borderColorOpacity, 10))};
+                    </div>
+                  )}
+                  {css.borderLeftStyle == 0 ? null : (
+                    <div>
+                      {space} border-left-style: {css.borderLeftStyle}px solid {css.borderColor + toHex(parseInt(css.borderColorOpacity, 10))};
+                    </div>
+                  )}
+                  </div>
+                 ))}
+
+            
+
 
             {css.ancho == 0 ? null : (
               <div>
@@ -138,6 +175,39 @@ export default function CssCode() {
               </div>
             )}
 
+            {css.paddingTop == 0 ||
+              css.paddingBottom == 0 ||
+              css.paddingLeft == 0 ||
+              css.paddingRight == 0 ? (
+                <div>
+                  {css.paddingTop == 0 ? null : (
+                    <div>
+                      {space} padding-top: {css.paddingTop}px;
+                    </div>
+                  )}
+                  {css.paddingRight == 0 ? null : (
+                    <div>
+                      {space} padding-right: {css.paddingRight}px;
+                    </div>
+                  )}
+                  {css.paddingBottom == 0 ? null : (
+                    <div>
+                      {space} padding-bottom: {css.paddingBottom}px;
+                    </div>
+                  )}
+                  {css.paddingLeft == 0 ? null : (
+                    <div>
+                      {space} padding-left: {css.paddingLeft}px;
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {space} padding: {css.paddingTop}px {css.paddingRight}px{" "}
+                  {css.paddingBottom}px {css.paddingLeft}px;
+                </div>
+              )}
+
             <div>
               {css.fontSize == 0 ? null : (
                 <div>
@@ -145,6 +215,100 @@ export default function CssCode() {
                 </div>
               )}
             </div>
+
+            <div>
+              {css.zIndex == 0 ? null : (
+                <div>
+                  {space} z-index: {css.zIndex};
+                </div>
+              )}
+            </div>
+
+            {css.borderRadiusSI == 0 &&
+             css.borderRadiusSD == 0 &&
+             css.borderRadiusII == 0 &&
+             css.borderRadiusID == 0 ? (null) : (
+               css.borderRadiusSI == css.borderRadiusSD &&
+                css.borderRadiusSI == css.borderRadiusII &&
+                css.borderRadiusSI == css.borderRadiusID ? (
+                  <div>
+                    {space} border-radius: {css.borderRadiusSI}px
+                  </div>
+                ): (
+              <div>
+                {space} border-radius: {css.borderRadiusSI}px {css.borderRadiusSD}px {css.borderRadiusII}px {css.borderRadiusID}px;
+              </div>
+              )
+             )
+            }
+
+            <div>
+              {css.transformRotateZ == 0 &&
+               css.transformRotateX == 0 &&
+               css.transformRotateY == 0 &&
+               css.transformSkewX == 0 &&
+               css.transformSkewY == 0 ? null : (
+                <div>
+                  {space} transform: rotateZ({css.transformRotateZ}deg) rotateX({css.transformRotateX}deg) rotateY({css.transformRotateY}deg) skew({css.transformSkewX}deg, {css.transformSkewY}deg);
+                </div>
+              )}
+            </div>
+
+            <div>
+              {css.fontWeight == "500" ? null : (
+                <div>
+                  {space} font-weight: {css.fontWeight};
+                </div>
+              )}
+            </div>
+
+            <div>
+              {css.fontStyle == "normal" ? null : (
+                <div>
+                  {space} font-style: {css.fontStyle};
+                </div>
+              )}
+            </div>
+
+            <div>
+              {css.textAling == "left" || css.texto == "" ? null : (
+                <div>
+                  {space} text-align: {css.textAling};
+                </div>
+              )}
+            </div>
+
+            <div>
+                {css.wordWrap == "normal" || css.texto == "" ? null : (
+                  <div>
+                   {space} word-wrap: {css.wordWrap};
+                  </div>
+                )}
+            </div>
+
+            <div>
+                {css.texto == "" ? null : (
+                  <div>
+                   {space} color: {css.textColor + toHex(parseInt(css.textOpacity, 10))};
+                  </div>
+                )}
+            </div>
+
+            {css.webKitTextStroke == 0 ? null : (
+              <div>
+                {space} -webkit-text-stroke: {css.webKitTextStroke}px {css.webKitTextStrokeColor + toHex(parseInt(css.webKitTextStrokeOpacity, 10))};
+              </div>
+            )}
+
+            {css.textShadowX == 0 &&
+              css.textShadowY == 0 &&
+              css.textShadowBlur == 0 ? (null) : (  
+                <div>
+                  {space} box-shadow: {css.textShadowX}px {css.textShadowY}px {css.textShadowBlur}px {css.textShadowColor + toHex(parseInt(css.textShadowColorOpacity, 10))};
+                </div>
+              )
+              }
+
             <div>{close}</div>
             <br />
           </div>

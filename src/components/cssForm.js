@@ -5,6 +5,7 @@ import InputText from "./formsComponents/inputText/inputText";
 import InputColor from "./formsComponents/inputColor/inputColor";
 import TwoRadioButtons from "./formsComponents/RadioButtons/twoRadioButtons";
 import ThreeRadioButtons from "./formsComponents/RadioButtons/threeRadioButtons";
+import FourRadioButtons from "./formsComponents/RadioButtons/fourRadioButtons";
 import Provider from "../utils/provider";
 import { CssContext } from "../utils/cssContext";
 
@@ -43,7 +44,7 @@ export default function CssForm() {
             label2="#id"
           />
           <br />
-          
+
           <InputText
             inputData={state.cssData.nombre}
             inputId={state.cssData.id}
@@ -58,7 +59,8 @@ export default function CssForm() {
             inputLabel="Alto"
             inputType="number"
           />
-          <div>Margen</div>
+          <br />
+          <div>Margen Externo</div>
           <InputText
             inputData={state.cssData.nombre}
             inputId={state.cssData.id}
@@ -84,6 +86,36 @@ export default function CssForm() {
             inputData={state.cssData.nombre}
             inputId={state.cssData.id}
             inputKey="margenIzquierdo"
+            inputLabel="Izquierdo"
+            inputType="number"
+          />
+          <br />
+          <div>Margen Interno</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="paddingTop"
+            inputLabel="Superior"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="paddingRight"
+            inputLabel="Derecho"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="paddingBottom"
+            inputLabel="Inferior"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="paddingLeft"
             inputLabel="Izquierdo"
             inputType="number"
           />
@@ -125,7 +157,7 @@ export default function CssForm() {
             inputData={state.cssData.nombre}
             inputId={state.cssData.id}
             inputKey="boxShadowColor"
-            inputLabel="Color"
+            inputLabel="Color de Sombra"
             inputType="color"
           />
           <InputText
@@ -147,6 +179,131 @@ export default function CssForm() {
           />
 
           <br />
+          <div>Contorno</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderColor"
+            inputLabel="Color de borde"
+            inputType="color"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderTopStyle"
+            inputLabel="superior"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderRightStyle"
+            inputLabel="derecha"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderBottomStyle"
+            inputLabel="inferior"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderLeftStyle"
+            inputLabel="izquierda"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderColorOpacity"
+            inputLabel="Opacidad"
+            inputType="number"
+            minNumber="0"
+            maxNumber="255"
+          />
+          <br />
+          <div>Esquinas Redondas</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderRadiusSI"
+            inputLabel="Superior Izquierda"
+            inputType="number"
+            minNumber="0"
+            maxNumber="99999"
+          />
+
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderRadiusSD"
+            inputLabel="Superior Derecha"
+            inputType="number"
+            minNumber="0"
+            maxNumber="99999"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderRadiusII"
+            inputLabel="Inferior Izquierda"
+            inputType="number"
+            minNumber="0"
+            maxNumber="99999"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="borderRadiusID"
+            inputLabel="Inferior Derecha"
+            inputType="number"
+            minNumber="0"
+            maxNumber="99999"
+          />
+
+          <br />
+
+          <div>Transformación</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="transformRotateZ"
+            inputLabel="Rotar"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="transformRotateX"
+            inputLabel="Volteo vertical"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="transformRotateY"
+            inputLabel="Volteo horizontal"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="transformSkewX"
+            inputLabel="Distorsión horizontal"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="transformSkewY"
+            inputLabel="Distorsión vertical"
+            inputType="number"
+          />
+
+          <br />
 
           <div>Posición</div>
           <ThreeRadioButtons
@@ -159,6 +316,15 @@ export default function CssForm() {
             radioName3="absolute"
             label3="Objeto Hijo"
           />
+
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="zIndex"
+            inputLabel="Orden de capa"
+            inputType="number"
+          />
+
           {state.cssData.position === "static" ||
           state.cssData.position === "relative" ? null : (
             <div>
@@ -181,7 +347,6 @@ export default function CssForm() {
 
           <br />
 
-
           <InputText
             inputData={state.cssData.nombre}
             inputId={state.cssData.id}
@@ -197,7 +362,136 @@ export default function CssForm() {
             inputLabel="Tamaño de Letra"
             inputType="number"
           />
-          
+          <br />
+          <div>Grosor</div>
+          <ThreeRadioButtons
+            inputId={state.cssData.id}
+            inputKey="fontWeight"
+            radioName1="200"
+            label1="fino"
+            radioName2="500"
+            label2="normal"
+            radioName3="900"
+            label3="Grueso"
+          />
+          <br />
+          <div>Estilo</div>
+          <TwoRadioButtons
+            inputId={state.cssData.id}
+            inputKey="fontStyle"
+            radioName1="normal"
+            label1="Normal"
+            radioName2="italic"
+            label2="Cursiva"
+          />
+          <br />
+          <div>Alineación</div>
+          <FourRadioButtons
+            inputId={state.cssData.id}
+            inputKey="textAling"
+            radioName1="left"
+            label1="izquierda"
+            radioName2="right"
+            label2="derecha"
+            radioName3="center"
+            label3="centro"
+            radioName4="justify"
+            label4="Justificado"
+          />
+
+          <br />
+          <div>Estilo</div>
+          <TwoRadioButtons
+            inputId={state.cssData.id}
+            inputKey="wordWrap"
+            radioName1="break-word"
+            label1="contener dentro"
+            radioName2="normal"
+            label2="no contener"
+          />
+          <br />
+          <div>Color Texto</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textColor"
+            inputLabel="Color"
+            inputType="color"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textOpacity"
+            inputLabel="Opacidad"
+            inputType="number"
+            minNumber="0"
+            maxNumber="255"
+          />
+
+          <div>Borde de texto</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="webKitTextStroke"
+            inputLabel="Grosor"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="webKitTextStrokeColor"
+            inputLabel="Color"
+            inputType="color"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="webKitTextStrokeOpacity"
+            inputLabel="Opacidad"
+            inputType="number"
+            minNumber="0"
+            maxNumber="255"
+          />
+          <br />
+          <div>Sombra de texto</div>
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textShadowX"
+            inputLabel="X"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textShadowY"
+            inputLabel="Y"
+            inputType="number"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textShadowBlur"
+            inputLabel="Desenfoque"
+            inputType="number"
+          />
+
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textShadowColor"
+            inputLabel="Color"
+            inputType="color"
+          />
+          <InputText
+            inputData={state.cssData.nombre}
+            inputId={state.cssData.id}
+            inputKey="textShadowColorOpacity"
+            inputLabel="Opacidad"
+            inputType="number"
+            minNumber="0"
+            maxNumber="255"
+          />
         </Provider>
       )}
     </form>
