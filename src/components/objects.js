@@ -8,6 +8,8 @@ export default function Objects() {
   let {css} = useContext(CssContext);
   let {setCss} = useContext(CssContext);
 
+  let space = <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>;
+
   let arrCss = [];
 
   const [state, setState] = useContext(AppContext);
@@ -114,11 +116,22 @@ export default function Objects() {
     setState({ ...state, cssData: cssDataSelect});
   }
 
+  function removeColor(e) {
+    let id = e.target.id;
+    let arr = JSON.parse(localStorage.getItem("css"));
+    let newArr = arr.filter((c) => c.id != id);
+    localStorage.setItem("css", JSON.stringify(newArr));
+    setCss(newArr);
+  }
+
   return (
     <div>
       <button onClick={addObject} onClick={updateCss}>
         Añadir Nuevo Objeto
       </button>
+      <div style = {{width: '100%', height: '65vh', overflow: "auto"}}>
+      
+      
       <DragDropContext
         onDragEnd={(result) => {
           const { source, destination } = result;
@@ -158,7 +171,8 @@ export default function Objects() {
                       {...draggableprovider.dragHandleProps}
                       className="css-item"
                     > 
-                      {css.nombre}
+                    {css.position === "absolute" && space}
+                      {css.nombre} <button id={css.id} onClick={removeColor}>Borrar</button>
                     </li>
                   )}
                 </Draggable>
@@ -168,6 +182,7 @@ export default function Objects() {
           )}
         </Droppable>
       </DragDropContext>
+      </div>
     </div>
   );
 }

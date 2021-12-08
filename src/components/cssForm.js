@@ -8,6 +8,7 @@ import ThreeRadioButtons from "./formsComponents/RadioButtons/threeRadioButtons"
 import FourRadioButtons from "./formsComponents/RadioButtons/fourRadioButtons";
 import Provider from "../utils/provider";
 import { CssContext } from "../utils/cssContext";
+import "./cssForm.css";
 
 export default function CssForm() {
   const [state, setState] = useContext(AppContext);
@@ -24,8 +25,161 @@ export default function CssForm() {
   }
 
   return (
-    <form>
-      <h2>Formulario CSS</h2>
+    <form style={{ width: "100%", height: "92vh", overflow: "auto" }}>
+      <div className="division">
+        <header className="cssFormHeader">General</header>
+        <main className="cssFormMain">
+          <section className="cssFormSection">
+            <article className="cssFormArticle"></article>
+          </section>
+        </main>
+        <footer className="cssFormFooter"></footer>
+      </div>
+      <footer className="divFooter"></footer>
+
+      <div className="division">
+        <header className="cssFormHeader">Tamaño</header>
+        <main className="cssFormMain">
+          <section className="cssFormSection">
+            <article className="cssFormArticle"></article>
+          </section>
+        </main>
+        <footer className="cssFormFooter"></footer>
+      </div>
+      <footer className="divFooter"></footer>
+
+      <div className="division">
+      <header className="cssFormHeader">Margen Externo</header>
+      <main className="cssFormMain">
+        <section className="cssFormSection">
+          <article className="cssFormArticle"></article>
+        </section>
+      </main>
+      <footer className="cssFormFooter"></footer>
+    </div>
+    <footer className="divFooter"></footer>
+
+    <div className="division">
+    <header className="cssFormHeader">Margen Interno</header>
+    <main className="cssFormMain">
+      <section className="cssFormSection">
+        <article className="cssFormArticle"></article>
+      </section>
+    </main>
+    <footer className="cssFormFooter"></footer>
+  </div>
+  <footer className="divFooter"></footer>
+
+  <div className="division">
+  <header className="cssFormHeader">Color</header>
+  <main className="cssFormMain">
+    <section className="cssFormSection">
+      <article className="cssFormArticle"></article>
+    </section>
+  </main>
+  <footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Sombra de Objeto</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Contorno</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Redondear Esquinas</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Transformación</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Posición</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Texto</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Color de Texto</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Borde de texto</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
+<div className="division">
+<header className="cssFormHeader">Sombra de texto</header>
+<main className="cssFormMain">
+  <section className="cssFormSection">
+    <article className="cssFormArticle"></article>
+  </section>
+</main>
+<footer className="cssFormFooter"></footer>
+</div>
+<footer className="divFooter"></footer>
+
       {checkCssData && (
         <Provider>
           <InputText

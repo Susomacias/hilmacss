@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
 import Element from "../components/element";
 import Objects from "../components/objects";
 import CssCode from "../components/cssCode";
@@ -10,47 +9,79 @@ import Provider from "../utils/provider";
 import { DataProvider } from "../utils/DataContext";
 import { CssProvider } from "../utils/cssContext";
 import { HtmlProvider } from "../utils/htmlContext";
+import "./tool.css";
 
-let arrHtml = [{ nombre: "myCssElement", classOrId: "class", flexDirection:"column" }];
-let arrCss = [];
+export default function Toll() {
 
-const Tool = (_) => (
-  <Provider>
-    <HtmlProvider> 
+  let restulMode = "cssDraw"
+  
+  const [inputState, setInputState] = useState("cssDraw");
+  
+  function showMode(e){
+    restulMode = e.target.id;
+    console.log(restulMode);
+    setInputState(restulMode);
+    console.log(inputState);
+    if(restulMode === "cssDraw"){
+      let active=document.getElementById("drawActive");
+      if(active != null){
+        active.style.cssText = 'background-color: #222;';
+        let disabled=document.getElementById("codeActive");
+        disabled.style.cssText = 'background-color: none;';
+      }    
+    }
+    if(restulMode === "cssCode"){
+      let active=document.getElementById("codeActive");
+      if(active != null){
+        active.style.cssText = 'background-color: #222;';
+        let disabled=document.getElementById("drawActive");
+        disabled.style.cssText = 'background-color: none;';
+      }
+    }
+  }
+  
+  return(
+
+    <Provider>
+    <HtmlProvider>
       <CssProvider>
         <DataProvider>
-          <Container>
-            {useEffect(() => {
-             // localStorage.clear();
-              localStorage.setItem("css", JSON.stringify(arrCss));
-              localStorage.setItem("html", JSON.stringify(arrHtml));
-            })}
-            <h1>Herramienta</h1>
-            <Row>
-              <Col>
-                <Element></Element>
-                <Objects></Objects>
-              </Col>
-              <Col>
-                <CssForm />
-              </Col>
-              <Col>
-                <CssDraw />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <HtmlCode />
-              </Col>
-              <Col>
-                <CssCode />
-              </Col>
-            </Row>
-          </Container>
+          <header>
+            <nav className="navTool">
+              <ul className="ulTool">
+                <li className="logoTool"><a>Logo</a></li>
+                <li className="optionTool" id="drawActive" style={{backgroundColor: "#222"}}><a id="cssDraw" onClick={showMode}>Vista Renderizada</a></li>
+                <li className="optionTool" id="codeActive"><a id="cssCode" onClick={showMode}>Codigo Html y CSS</a></li>
+              </ul>
+            </nav>
+          </header>
+          <div className="containerTool">
+          <div className="ElementAndObjects">
+          <Element></Element>
+          <Objects></Objects>
+          </div>
+          <main className="result">
+
+          {inputState === "cssCode" &&
+            <section>
+            <article><HtmlCode /></article>
+            <article><CssCode /></article>
+          </section>
+          }
+            <section>
+            <article><CssDraw /></article>
+          </section>
+          
+          </main>
+          <div className="cssForm"><CssForm /></div>
+          </div>
+          
+          <footer className="footerTool"></footer>
         </DataProvider>
       </CssProvider>
     </HtmlProvider>
   </Provider>
-);
 
-export default Tool;
+  );
+}
+

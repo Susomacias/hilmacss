@@ -42,13 +42,14 @@ export default function InputText(props) {
 
   return (
     <div className="finput">
-      <label htmlFor="fname">{props.inputLabel}</label>
+      <label className="labelText" htmlFor="fname">{props.inputLabel}</label>
       {props.minNumber || props.maxNumber ? (<div>
         <input
+          className="inputText"
           type={props.inputType}
           min={props.minNumber}
           max={props.maxNumber}
-          id="fname"
+          id={props.inputType}
           name="fname"
           value={inputState}
           onChange={handleInputChange}
@@ -56,8 +57,9 @@ export default function InputText(props) {
       </div>) : (
         <div>
         <input
+          className="inputText"
           type={props.inputType}
-          id="fname"
+          id={props.inputType}
           name="fname"
           value={inputState}
           onChange={handleInputChange}

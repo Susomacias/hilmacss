@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import React from "react";
-import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cover from "./pages/cover";
 import Tool from "./pages/tool";
@@ -79,7 +78,6 @@ function App() {
       "textShadowColorOpacity": "255"
 }];
 
-  //localStorage.clear();
   if (localStorage.getItem("html") === null) {
     localStorage.setItem("css", JSON.stringify(arrCss));
     localStorage.setItem("html", JSON.stringify(arrHtml));
@@ -94,12 +92,10 @@ function App() {
   return (
 
     <Router>
-      <Container>
         <Routes>
           <Route path="/" element={<Cover />} />
           <Route path="/tool" element={<Tool />} />
         </Routes>
-      </Container>
     </Router>
 
   );

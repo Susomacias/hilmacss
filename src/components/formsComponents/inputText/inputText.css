@@ -16,3 +16,25 @@ input:focus{
     background-color:#3c3c3c;
     border: 2px solid rgb(0, 119, 255);
 }
+
+.finput{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.labelText{
+    margin-right: 5px;
+    margin-bottom: -4px;
+}
+
+.inputText{
+    width: 75px;
+}
+
+#text{
+    width: 220px;
+}
+

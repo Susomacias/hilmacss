@@ -1,0 +1,63 @@
+.navTool{
+}
+
+.ulTool{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+    line-height: 5vh;
+}
+
+.logoTool{
+    float: left;
+}
+
+.logoTool a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.optionTool{
+    float: left;
+}
+
+.optionTool a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.containerTool{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.ElementAndObjects{
+    flex: 15%;
+}
+
+.result{
+    flex: 58%;
+}
+
+.cssForm{
+    flex: 21%;
+}
+
+.footerTool{
+    width: 100%;
+    height: 3vh;
+    background-color: rgba(1, 160, 252, 0.918);
+}

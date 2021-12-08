@@ -23,16 +23,15 @@ export default function CssDraw() {
     return hex;
   }
 
-  function changeBackground(e) {
-    e.target.style.background = 'red';
-  }
+
 
   return (
     <div
       style={{
-        height: "100vh",
+        width: '100%', height: '92vh', overflow: "auto",
         position: "relative",
       }}
+      
     >
       <div
         className={html[0].nombre}
@@ -203,10 +202,9 @@ export default function CssDraw() {
                   css.textShadowBlur +
                   "px " +
                   css.textShadowColor +
-                  toHex(parseInt(css.textShadowColorOpacity, 10)),                  
-              }
-              
-            }
+                  toHex(parseInt(css.textShadowColorOpacity, 10)),
+                  ['&:hover']: { color: 'yellow !important' }
+              }}
             >
               {css.texto}
               {css.position === "relative" &&
@@ -238,8 +236,8 @@ export default function CssDraw() {
                               ) +
                               ")"
                             : "none",
-                        width: c.ancho === 0 ? "none" : c.ancho + "px",
-                        height: c.alto === 0 ? "none" : c.alto + "px",
+                        width: c.ancho > 0 ? c.ancho + "px" : null,
+                        height: c.alto > 0 ? c.alto + "px" : null,
                         marginTop: c.margenSuperior + "px",
                         marginBottom: c.margenInferior + "px",
                         marginLeft: c.margenIzquierdo + "px",
@@ -256,12 +254,21 @@ export default function CssDraw() {
                             : "none",
                         transform:
                           c.position === "absolute"
-                            ? "translate(50%, -50%)"
-                            : "none",
+                            ? "translate(50%, -50%) rotate(" +
+                              c.transformRotateZ +
+                              "deg) rotateX(" +
+                              c.transformRotateX +
+                              "deg) rotateY(" +
+                              c.transformRotateY +
+                              "deg) skew(" +
+                              c.transformSkewX +
+                              "deg, " +
+                              c.transformSkewY +
+                              "deg)"
+                            : null,
 
                         fontSize: c.fontSize + "px",
                         textAlign: "center",
-
                         boxShadow:
                           c.boxShadowX == 0 &&
                           c.boxShadowY == 0 &&
@@ -280,6 +287,27 @@ export default function CssDraw() {
                               toHex(parseInt(c.boxShadowColorOpacity, 10)) +
                               " " +
                               c.boxShadowTipe,
+                        borderTop:
+                          c.borderTopStyle +
+                          "px solid" +
+                          c.borderColor +
+                          toHex(parseInt(c.borderColorOpacity, 10)),
+                        borderBottom:
+                          c.borderBottomStyle +
+                          "px solid" +
+                          c.borderColor +
+                          toHex(parseInt(c.borderColorOpacity, 10)),
+                        borderLeft:
+                          c.borderLeftStyle +
+                          "px solid" +
+                          c.borderColor +
+                          toHex(parseInt(c.borderColorOpacity, 10)),
+                        borderRight:
+                          c.borderRightStyle +
+                          "px solid" +
+                          c.borderColor +
+                          toHex(parseInt(c.borderColorOpacity, 10)),
+
                         zIndex: c.zIndex,
                         borderRadius:
                           c.borderRadiusSI +
@@ -293,27 +321,58 @@ export default function CssDraw() {
                           " " +
                           c.borderRadiusID +
                           "px",
-                        transform:
-                          "rotate(" +
-                          c.transformRotateZ +
-                          "deg) rotateX(" +
-                          c.transformRotateX +
-                          "deg) rotateY(" +
-                          c.transformRotateY +
-                          "deg) skew(" +
-                          c.transformSkewX +
-                          "deg, " +
-                          c.transformSkewY +
-                          "deg)",
                         fontWeight: c.fontWeight,
                         fontStyle: c.fontStyle,
                         paddingTop: c.paddingTop + "px",
                         paddingBottom: c.paddingBottom + "px",
                         paddingLeft: c.paddingLeft + "px",
                         paddingRight: c.paddingRight + "px",
-                        textAlign: c.textAlign,
+                        wordWrap: c.wordWrap,
+                        color: c.textColor + toHex(parseInt(c.textOpacity, 10)),
+                        textShadow:
+                          "0 0" +
+                          c.webKitTextStroke +
+                          "px " +
+                          c.webKitTextStrokeColor +
+                          toHex(parseInt(c.webKitTextStrokeOpacity, 10)) +
+                          ", -" +
+                          c.webKitTextStroke +
+                          "px -" +
+                          c.webKitTextStroke +
+                          "px 0" +
+                          c.webKitTextStrokeColor +
+                          toHex(parseInt(c.webKitTextStrokeOpacity, 10)) +
+                          "," +
+                          c.webKitTextStroke +
+                          "px -" +
+                          c.webKitTextStroke +
+                          "px 0" +
+                          c.webKitTextStrokeColor +
+                          toHex(parseInt(c.webKitTextStrokeOpacity, 10)) +
+                          ", -" +
+                          c.webKitTextStroke +
+                          "px " +
+                          c.webKitTextStroke +
+                          "px 0" +
+                          c.webKitTextStrokeColor +
+                          toHex(parseInt(c.webKitTextStrokeOpacity, 10)) +
+                          "," +
+                          c.webKitTextStroke +
+                          "px " +
+                          c.webKitTextStroke +
+                          "px 0" +
+                          c.webKitTextStrokeColor +
+                          toHex(parseInt(c.webKitTextStrokeOpacity, 10)) +
+                          "," +
+                          c.textShadowX +
+                          "px " +
+                          c.textShadowY +
+                          "px " +
+                          c.textShadowBlur +
+                          "px " +
+                          c.textShadowColor +
+                          toHex(parseInt(c.textShadowColorOpacity, 10)),
                       }}
-                      
                     >
                       {c.texto}
                     </div>
