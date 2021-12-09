@@ -49,7 +49,7 @@ export default function Toll() {
           <header>
             <nav className="navTool">
               <ul className="ulTool">
-                <li className="logoTool"><a>Logo</a></li>
+                <li className="logoTool"><a>HilmaCss</a></li>
                 <li className="optionTool" id="drawActive" style={{backgroundColor: "#222"}}><a id="cssDraw" onClick={showMode}>Vista Renderizada</a></li>
                 <li className="optionTool" id="codeActive"><a id="cssCode" onClick={showMode}>Codigo Html y CSS</a></li>
               </ul>

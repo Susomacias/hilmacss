@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext} from "react";
 import { CssContext } from "../../../utils/cssContext";
+import "./RadioButtons.css";
+
 
 export default function FourRadioButtons(props) {
   const [value, setValue] = useState(props.radioName1);
@@ -42,51 +44,43 @@ export default function FourRadioButtons(props) {
   });
 
   return (
-    <div>
-      <div>
-        <input
-          type="radio"
-          id="threeRadio1"
-          name={props.radioName1}
-          value={props.radioName1}
-          checked={value === props.radioName1 ? true : false}
-          onChange={handleChange}
-        />
-        <label htmlFor="threeRadio1">{props.label1}</label>
-      </div>
-      <div>
+    <div className="wrapper">
       <input
         type="radio"
-        id="threeRadio2"
+        id="option-1"
+        name={props.radioName1}
+        value={props.radioName1}
+        checked={value === props.radioName1 ? true : false}
+        onChange={handleChange}
+      />
+      <label htmlFor="option-1" className="option option-1"><span>{props.label1}</span></label>
+      <input
+        type="radio"
+        id="option-2"
         name={props.radioName2}
         value={props.radioName2}
         checked={value === props.radioName2 ? true : false}
         onChange={handleChange}
       />
-      <label htmlFor="threeRadio2">{props.label2}</label>
-    </div>
-    <div>
+      <label htmlFor="option-2" className="option option-2"><span>{props.label2}</span></label>
       <input
         type="radio"
-        id="threeRadio3"
+        id="option-3"
         name={props.radioName3}
         value={props.radioName3}
         checked={value === props.radioName3 ? true : false}
         onChange={handleChange}
       />
-      <label htmlFor="threeRadio2">{props.label3}</label>
-    </div>
-    <div>
+      <label htmlFor="option-3" className="option option-3"><span>{props.label3}</span></label>
       <input
         type="radio"
-        id="threeRadio3"
+        id="option-4"
         name={props.radioName4}
         value={props.radioName4}
         checked={value === props.radioName4 ? true : false}
         onChange={handleChange}
       />
-      <label htmlFor="threeRadio2">{props.label4}</label>
-    </div>
+      <label htmlFor="option-4" className="option option-4"><span>{props.label4}</span></label>
     </div>
   );
 }

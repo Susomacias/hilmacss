@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext} from "react";
 import { CssContext } from "../../../utils/cssContext";
+import "./RadioButtons.css";
+
 
 export default function ThreeRadioButtons(props) {
   const [value, setValue] = useState(props.radioName1);
@@ -42,40 +44,40 @@ export default function ThreeRadioButtons(props) {
   });
 
   return (
+    <div className="wrapper">
     <div>
-      <div>
-        <input
-          type="radio"
-          id="threeRadio1"
-          name={props.radioName1}
-          value={props.radioName1}
-          checked={value === props.radioName1 ? true : false}
-          onChange={handleChange}
-        />
-        <label htmlFor="threeRadio1">{props.label1}</label>
-      </div>
-      <div>
       <input
         type="radio"
-        id="threeRadio2"
+        id="option-1"
+        name={props.radioName1}
+        value={props.radioName1}
+        checked={value === props.radioName1 ? true : false}
+        onChange={handleChange}
+      />
+      <label htmlFor="option-1" className="option option-1"><span>{props.label1}</span></label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="option-2"
         name={props.radioName2}
         value={props.radioName2}
         checked={value === props.radioName2 ? true : false}
         onChange={handleChange}
-      />
-      <label htmlFor="threeRadio2">{props.label2}</label>
+      />      
+      <label htmlFor="option-2" className="option option-2"><span>{props.label2}</span></label>
     </div>
-    <div>
-      <input
-        type="radio"
-        id="threeRadio3"
-        name={props.radioName3}
-        value={props.radioName3}
-        checked={value === props.radioName3 ? true : false}
-        onChange={handleChange}
-      />
-      <label htmlFor="threeRadio2">{props.label3}</label>
-    </div>
-    </div>
+<div>
+<input
+  type="radio"
+  id="option-3"
+  name={props.radioName3}
+  value={props.radioName3}
+  checked={value === props.radioName3 ? true : false}
+  onChange={handleChange}
+/>      
+<label htmlFor="option-3" className="option option-3"><span>{props.label3}</span></label>
+</div>
+  </div>
   );
 }

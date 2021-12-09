@@ -65,7 +65,6 @@ export default function InputColor(props) {
 
   return (
     <div>
-      <h3>Color</h3>
       {data && (
         <Provider>
           <ThreeRadioButtons
@@ -74,9 +73,9 @@ export default function InputColor(props) {
             radioName1="solid"
             label1="Sólido"
             radioName2="linear-gradient"
-            label2="Gradiente Lineal"
+            label2="degra. Linea"
             radioName3="radial-gradient"
-            label3="Gradiente Radial"
+            label3="degra. Radio"
           />
           {css[props.id - 1].colorMode === "solid" ? (
             <div>
