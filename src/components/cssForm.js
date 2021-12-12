@@ -26,7 +26,7 @@ export default function CssForm() {
 
   return (
     <form style={{ width: "100%", height: "92vh", overflow: "auto" }}>
-      {checkCssData && (
+      {checkCssData ? (
         <Provider>
           <div className="division">
             <header className="cssFormHeader">General</header>
@@ -103,7 +103,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="margenDerecho"
-                    inputLabel="Derecho"
+                    inputLabel="Der."
                     inputType="number"
                   />
                 </article>
@@ -121,7 +121,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="margenIzquierdo"
-                    inputLabel="Izquierdo"
+                    inputLabel="Iz."
                     inputType="number"
                   />
                 </article>
@@ -149,7 +149,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="paddingRight"
-                    inputLabel="Derecho"
+                    inputLabel="Der."
                     inputType="number"
                   />
                 </article>
@@ -167,7 +167,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="paddingLeft"
-                    inputLabel="Izquierdo"
+                    inputLabel="Iz."
                     inputType="number"
                   />
                 </article>
@@ -181,7 +181,7 @@ export default function CssForm() {
             <header className="cssFormHeader">Color</header>
             <main className="cssFormMain">
               <section className="cssFormSection">
-                <article className="cssFormArticle">
+                <article className="cssFormArticleColor">
                   <InputColor id={state.cssData.id} />
                 </article>
               </section>
@@ -244,7 +244,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="boxShadowColorOpacity"
-                    inputLabel="Opacidad"
+                    inputLabel="Opac."
                     inputType="number"
                     minNumber="0"
                     maxNumber="255"
@@ -274,15 +274,6 @@ export default function CssForm() {
                   <InputText
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
-                    inputKey="borderColor"
-                    inputLabel="Color borde"
-                    inputType="color"
-                  />
-                </article>
-                <article className="cssFormArticle">
-                  <InputText
-                    inputData={state.cssData.nombre}
-                    inputId={state.cssData.id}
                     inputKey="borderTopStyle"
                     inputLabel="superior"
                     inputType="number"
@@ -293,7 +284,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="borderRightStyle"
-                    inputLabel="derecha"
+                    inputLabel="der."
                     inputType="number"
                   />
                 </article>
@@ -311,7 +302,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="borderLeftStyle"
-                    inputLabel="izquierda"
+                    inputLabel="iz."
                     inputType="number"
                   />
                 </article>
@@ -319,8 +310,17 @@ export default function CssForm() {
                   <InputText
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
+                    inputKey="borderColor"
+                    inputLabel="Color borde"
+                    inputType="color"
+                  />
+                </article>
+                <article className="cssFormArticle">
+                  <InputText
+                    inputData={state.cssData.nombre}
+                    inputId={state.cssData.id}
                     inputKey="borderColorOpacity"
-                    inputLabel="Opacidad"
+                    inputLabel="Opac."
                     inputType="number"
                     minNumber="0"
                     maxNumber="255"
@@ -515,6 +515,27 @@ export default function CssForm() {
                     inputType="number"
                   />
                 </article>
+                <article className="cssFormArticle"></article>
+                <article className="cssFormArticle">
+                  <TwoRadioButtons
+                    inputId={state.cssData.id}
+                    inputKey="fontStyle"
+                    radioName1="normal"
+                    label1="Normal"
+                    radioName2="italic"
+                    label2="Cursiva"
+                  />
+                  </article>
+                  <article className="cssFormArticle">
+                  <TwoRadioButtons
+                    inputId={state.cssData.id}
+                    inputKey="wordWrap"
+                    radioName1="break-word"
+                    label1="contener dentro"
+                    radioName2="normal"
+                    label2="no contener"
+                  />
+                </article>
                 <article className="cssFormArticle">
                   <ThreeRadioButtons
                     inputId={state.cssData.id}
@@ -525,16 +546,6 @@ export default function CssForm() {
                     label2="medio"
                     radioName3="900"
                     label3="Grueso"
-                  />
-                </article>
-                <article className="cssFormArticle">
-                  <TwoRadioButtons
-                    inputId={state.cssData.id}
-                    inputKey="fontStyle"
-                    radioName1="normal"
-                    label1="Normal"
-                    radioName2="italic"
-                    label2="Cursiva"
                   />
                 </article>
                 <article className="cssFormArticle">
@@ -549,16 +560,6 @@ export default function CssForm() {
                     label3="centro"
                     radioName4="Alin Just."
                     label4="Justificado"
-                  />
-                </article>
-                <article className="cssFormArticle">
-                  <TwoRadioButtons
-                    inputId={state.cssData.id}
-                    inputKey="wordWrap"
-                    radioName1="break-word"
-                    label1="contener dentro"
-                    radioName2="normal"
-                    label2="no contener"
                   />
                 </article>
               </section>
@@ -585,7 +586,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="textOpacity"
-                    inputLabel="Opacidad"
+                    inputLabel="Opac."
                     inputType="number"
                     minNumber="0"
                     maxNumber="255"
@@ -624,7 +625,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="webKitTextStrokeOpacity"
-                    inputLabel="Opacidad"
+                    inputLabel="Opac."
                     inputType="number"
                     minNumber="0"
                     maxNumber="255"
@@ -681,7 +682,7 @@ export default function CssForm() {
                     inputData={state.cssData.nombre}
                     inputId={state.cssData.id}
                     inputKey="textShadowColorOpacity"
-                    inputLabel="Opacidad"
+                    inputLabel="Opac."
                     inputType="number"
                     minNumber="0"
                     maxNumber="255"
@@ -693,7 +694,12 @@ export default function CssForm() {
           </div>
           <footer className="divFooter"></footer>
         </Provider>
-      )}
+      ):(<div style={{padding:"10px", color: "rgb(255, 174, 0)", textAlign: "center"}}> 
+      <div style={{fontSize:"36px"}}>!</div>
+        SELECCIONA UN OBJETO DE LA LISTA 
+        <div>o añade uno nuevo para configurarlo </div> 
+        <div>(panel izquierdo)</div>
+        </div>)}
     </form>
   );
 }

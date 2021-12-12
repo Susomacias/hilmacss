@@ -1,0 +1,146 @@
+.coverContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-image:linear-gradient(rgb(160, 36, 36), rgb(221, 50, 50), rgb(153, 31, 31));
+    align-items: center;
+}
+
+.logoContainer {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    margin-top: 64px;
+}
+
+.c1 {
+  position:absolute;
+  width: 256px;
+  height: 256px;
+  background-color:rgb(228, 228, 228);
+  border-radius: 256px;
+  transition: all 1s;
+}
+
+.containerC2{
+  position:absolute;
+  width: 256px;
+  height: 256px;
+  transform: rotate(90deg);
+  transition: all 2.5s;
+}
+
+
+.c2 {
+  width: 256px;
+  height: 128px;
+  background: #3689cc;
+  -moz-border-radius: 256px 256px 0 0;
+  -webkit-border-radius: 256px 256px 0 0;
+  border-radius: 256px 256px 0 0;
+  transition: all 2s;
+}
+
+.containerC3{
+  position:absolute;
+  width: 256px;
+  height: 256px;
+  padding: 15%;
+}
+
+.c3 {
+  background-color:rgb(250, 206, 8);
+  width: 100%;
+  height: 100%;
+  border-radius: 256px;
+  transition: all 1.5s;
+  
+}
+
+.containerC4{
+  position:absolute;
+  width: 256px;
+  height: 256px;
+  padding:30%;
+}
+
+.c4 {
+  background-color:rgb(250, 134, 99);
+  width: 100%;
+  height: 100%;
+  border-radius: 256px;
+  transition: all 1s;
+}
+
+.containerC5{
+  position:absolute;
+  width: 256px;
+  height: 256px;
+  padding:15%;
+  transform: rotate(270deg);
+  transition: all 1s;
+}
+
+.c5 {
+  background-color:rgb(2, 2, 2);
+  width: 179.2px;
+  height: calc(179.2px/2);
+  border-radius: 256px;
+  -moz-border-radius: 179.2px 179.2px 0 0;
+  -webkit-border-radius: 179.2px 179.2px 0 0;
+  border-radius: 179.2px 179.2px 0 0;
+  transition: all 0.5s;
+  
+}
+
+.shadowLogo{
+  width: 256px;
+  height: 64px;
+  border-radius: 256%;
+  margin-top: 20px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.548), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.isoTipo{
+  font-family: 'Inria Serif', serif;
+  font-size: 3em;
+  color: #fff;
+}
+
+.enterTool{
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Inria Serif', serif;
+  font-size: 1.5em;
+  background-color: rgba(0, 0, 0, 0.144);
+  padding: 10px;
+}
+
+.enterTool:hover{
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Inria Serif', serif;
+  font-size: 1.5em;
+  background-color: #0862ff;
+  padding: 10px;
+}
+
+.enterTool:link{text-decoration: none;color: #fff;}
+.enterTool:visited{text-decoration: none;color: #fff;}
+.enterTool:active{text-decoration: none;color: #fff;}
+
+.firma{
+  font-family: 'Inria Serif', serif;
+  color: rgba(0, 0, 0, 0.658);
+  margin-top: 50px;
+  transition: all 1s;
+}
+
+.firma:hover{
+  font-size: 18px;
+}
+
+.firma:link{text-decoration: none;color: rgba(0, 0, 0, 0.658);}
+.firma:visited{text-decoration: none;color: rgba(0, 0, 0, 0.658);}
+.firma:active{text-decoration: none;color: rgba(0, 0, 0, 0.658);}

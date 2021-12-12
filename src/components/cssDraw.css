@@ -1,0 +1,27 @@
+.cssDrawContainer::-webkit-scrollbar {
+    width: 7px !important;
+    background-color: #1818185b !important;
+  }
+
+  .cssDrawContainer::-webkit-scrollbar:hover {
+    width: 15px !important;
+    background-color: #1818188a !important;
+  }
+
+  .cssDrawContainer::-webkit-scrollbar-thumb {
+    width: 7px !important;
+    background-color: #41414185 !important;
+  }
+
+  .cssDrawContainer::-webkit-scrollbar-thumb:hover {
+    width: 15px !important;
+    background-color: #414141 !important;
+  }
+
+  .backgrounSelect{
+      position:sticky;
+      top: 5px;
+      text-align: right;
+      font-size: 10px;
+      margin-right: 5px;
+  }

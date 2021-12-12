@@ -2,6 +2,7 @@ import { useContext, useEffect} from "react";
 import { AppContext } from "../utils/provider";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { CssContext } from "../utils/cssContext";
+import "./objects.css";
 
 export default function Objects() {
 
@@ -27,7 +28,7 @@ export default function Objects() {
     let cssStore = JSON.parse(localStorage.getItem("css"));
     let obj = {
       id: Object.keys(cssStore).length + 1,
-      nombre: "layer" + (Object.keys(cssStore).length + 1),
+      nombre: "objeto" + (Object.keys(cssStore).length + 1),
       propiedad: Object.keys(cssStore).length + 1,
       classOrId:"class",
       ancho:50,
@@ -126,12 +127,11 @@ export default function Objects() {
 
   return (
     <div>
-      <button onClick={addObject} onClick={updateCss}>
+      <div onClick={addObject} onClick={updateCss} className="buttonAddObject">
         Añadir Nuevo Objeto
-      </button>
-      <div style = {{width: '100%', height: '65vh', overflow: "auto"}}>
-      
-      
+      </div>
+      <span className="selectToList">Selecciona un objeto de la lista</span>
+      <div className="objectContainer" style = {{width: '100%', height: '58vh', overflow: "auto"}}>
       <DragDropContext
         onDragEnd={(result) => {
           const { source, destination } = result;
@@ -171,8 +171,18 @@ export default function Objects() {
                       {...draggableprovider.dragHandleProps}
                       className="css-item"
                     > 
-                    {css.position === "absolute" && space}
-                      {css.nombre} <button id={css.id} onClick={removeColor}>Borrar</button>
+                    {css.position === "absolute" ? (
+                      <div className="layerNameButtonChildren">
+                      {css.nombre} 
+                      <div className="closeButton" id={css.id} onClick={removeColor}>X</div>
+                    </div>
+                    ):(
+                      <div className="layerNameButton">
+                        {css.nombre} 
+                        <div className="closeButton" id={css.id} onClick={removeColor}>X</div>
+                      </div>
+                    )}
+                      
                     </li>
                   )}
                 </Draggable>

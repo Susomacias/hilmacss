@@ -26,9 +26,9 @@ export default function CssCode() {
 
 
   return (
-    <code>
-      <h3>CODIGO CSS</h3>
-
+    <div>
+    <h2>CODIGO CSS</h2>
+    <code> 
       <div>
         {html[0].classOrId === "class" ? point : tag}
         {html[0].nombre.replace(/[^a-zA-Z0-9]/g, "")}
@@ -315,5 +315,6 @@ export default function CssCode() {
         </div>
       ))}
     </code>
+    </div>
   );
 }

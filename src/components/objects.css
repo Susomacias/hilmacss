@@ -1,0 +1,99 @@
+.css-container {
+    padding: 5px !important;
+}
+
+.objectContainer{
+    border: 2px solid rgb(51, 51, 51);
+}
+
+.objectContainer::-webkit-scrollbar {
+    width: 7px !important;
+    background-color: #1818185b !important;
+  }
+
+  .objectContainer::-webkit-scrollbar:hover {
+    width: 15px !important;
+    background-color: #1818188a !important;
+  }
+
+  .objectContainer::-webkit-scrollbar-thumb {
+    width: 7px !important;
+    background-color: #41414185 !important;
+  }
+
+  .objectContainer::-webkit-scrollbar-thumb:hover {
+    width: 15px !important;
+    background-color: #414141 !important;
+  }
+
+.buttonAddObject{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #181818;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.buttonAddObject:hover{
+    background-color: rgb(0, 119, 255);
+    color: white;
+}
+
+.selectToList{
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.layerNameButton{
+    position: relative;
+    width: 70%;
+    margin-right: 30%;
+    padding: 10px;
+    text-align: center;
+    background-color: #181818;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.layerNameButton:hover{
+    background-color: rgb(0, 119, 255);
+    color: white;
+}
+
+.layerNameButtonChildren{
+    position: relative;
+    width: 70%;
+    margin-left: 30%;
+    padding: 10px;
+    text-align: center;
+    background-color: #181818;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.layerNameButtonChildren:hover{
+    background-color: rgb(0, 119, 255);
+    color: white;
+}
+
+.closeButton{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 90%;
+    padding-bottom: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+    background-color: #08080893;
+    border-radius: 50px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.closeButton:hover{
+    background-color: #ff0055;
+}
+

@@ -1,11 +1,13 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { HtmlContext } from "../utils/htmlContext";
+import "./formsComponents/inputColor/inputColor.css";
+import "./formsComponents/RadioButtons/RadioButtons.css";
+import "./formsComponents/inputText/inputText.css";
 
 const Element = () => {
-
   const [inputState, setInputState] = useState("myCssElement");
-  const {setHtml} = useContext(HtmlContext);
+  const { setHtml } = useContext(HtmlContext);
   const [classOrIdValue, setClassOrIdValue] = useState("class");
   const [flexDirectionValue, setFlexDirectionValue] = useState("column");
 
@@ -36,7 +38,9 @@ const Element = () => {
   return (
     <form>
       <div className="finput">
-        <label htmlFor="fname">Nombre</label>
+        <label htmlFor="fname" className="labelText">
+          Nombre
+        </label>
         <input
           type="text"
           id="fname"
@@ -45,48 +49,57 @@ const Element = () => {
           onChange={handleInputChange}
         />
       </div>
-
-      <div>
-        <input
-          type="radio"
-          id="isClass"
-          name="class"
-          value="class"
-          checked={classOrIdValue === "class" ? true : false}
-          onChange={ClassOrIdHandleChange}
-        />
-        <label htmlFor="class">.class</label>
-        <input
-        type="radio"
-        id="id"
-        name="id"
-        value="id"
-        checked={classOrIdValue === "id" ? true : false}
-        onChange={ClassOrIdHandleChange}
-      />
-      <label htmlFor="id">#id</label>
-        
+      <div className="labelText">Selector</div>
+      <div className="wrapper">
+        <div>
+          <input
+            type="radio"
+            id="isClass"
+            name="class"
+            value="class"
+            checked={classOrIdValue === "class" ? true : false}
+            onChange={ClassOrIdHandleChange}
+          />
+          <label htmlFor="class">.class</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="id"
+            name="id"
+            value="id"
+            checked={classOrIdValue === "id" ? true : false}
+            onChange={ClassOrIdHandleChange}
+          />
+          <label htmlFor="id">#id</label>
+        </div>
       </div>
-      <div>
-      <input
-        type="radio"
-        id="row"
-        name="row"
-        value="row"
-        checked={flexDirectionValue === "row" ? true : false}
-        onChange={flexDirectionHandleChange}
-      />
-      <label htmlFor="row">Fila</label>
-      <input
-        type="radio"
-        id="column"
-        name="column"
-        value="column"
-        checked={flexDirectionValue === "column" ? true : false}
-        onChange={flexDirectionHandleChange}
-      />
-      <label htmlFor="column">Columna</label>
-    </div>
+
+      <div className="labelText" style={{marginTop: "10px"}}>Distribución</div>
+      <div className="wrapper">
+        <div>
+          <input
+            type="radio"
+            id="row"
+            name="row"
+            value="row"
+            checked={flexDirectionValue === "row" ? true : false}
+            onChange={flexDirectionHandleChange}
+          />
+          <label htmlFor="row">Fila</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="column"
+            name="column"
+            value="column"
+            checked={flexDirectionValue === "column" ? true : false}
+            onChange={flexDirectionHandleChange}
+          />
+          <label htmlFor="column">Columna</label>
+        </div>
+      </div>
     </form>
   );
 };

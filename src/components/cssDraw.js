@@ -1,11 +1,14 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext,  useState } from "react";
 import { HtmlContext } from "../utils/htmlContext";
 import { CssContext } from "../utils/cssContext";
+import "./cssDraw.css";
 
 export default function CssDraw() {
   let { html } = useContext(HtmlContext);
   let { css } = useContext(CssContext);
+
+  const [bgColor, setBgColor] = useState("#252526");
 
   const staticAndRelative = (cssStaticAndRelative) =>
     cssStaticAndRelative.position === "static" ||
@@ -23,16 +26,28 @@ export default function CssDraw() {
     return hex;
   }
 
+  const handleInputChange = ({ target }) => {
+    let colorDeFondo = target.value;
+    console.log(target.value);
+    setBgColor(colorDeFondo);
+  };
+
 
 
   return (
-    <div
+    <div className="cssDrawContainer"
       style={{
         width: '100%', height: '92vh', overflow: "auto",
         position: "relative",
+        backgroundColor: bgColor,
       }}
       
     >
+    <div className="backgrounSelect">
+    <div> Color de fondo </div>
+    <input type="color" onChange={handleInputChange}/>
+    </div>
+    
       <div
         className={html[0].nombre}
         style={{

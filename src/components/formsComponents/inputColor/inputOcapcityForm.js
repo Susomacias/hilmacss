@@ -2,6 +2,7 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../../utils/DataContext";
 import { CssContext } from "../../../utils/cssContext";
+import "../inputText/inputText.css";
 
 export default function InputOpacityForm(props) {
 
@@ -16,7 +17,7 @@ export default function InputOpacityForm(props) {
     setInputState(inputState);
     setInputState(target.value);
     const arrCss=css.map(function (t) {
-      if (t.id === props.inputId+1) {
+      if (t.id === props.inputId) {
         t.color.map(function (t) {
           if (t.cId === props.colorId) {
             t.t = target.value;
@@ -34,7 +35,7 @@ export default function InputOpacityForm(props) {
   useEffect(() => {
     css = JSON.parse(localStorage.getItem("css")); 
     css.map(function (c) {
-        if (c.id === props.inputId + 1) {
+        if (c.id === props.inputId) {
           c.color.map(function (c) {
             if (c.cId === props.colorId) {
                 setInputState(c.t);
@@ -47,11 +48,11 @@ export default function InputOpacityForm(props) {
   });
 
   return (
-    <div className="finput">
-      <label htmlFor={"opacity" + props.inputId}>Opacidad</label>
+    <div>
+      <label htmlFor={"opacity" + props.inputId} className="labelText">Opac.</label>
 
-      <div>
         <input
+          className="inputText"
           type="number"
           min="0"
           max="255"
@@ -60,7 +61,7 @@ export default function InputOpacityForm(props) {
           value={inputState}
           onChange={handleInputChange}
         />
-      </div>
+
     </div>
   );
 }

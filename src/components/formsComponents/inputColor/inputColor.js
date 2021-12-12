@@ -6,12 +6,14 @@ import Provider from "../../../utils/provider";
 import ThreeRadioButtons from "../RadioButtons/threeRadioButtons";
 import InputColorForm from "./inputColorForm";
 import InputOpacityForm from "./inputOcapcityForm";
+import "../inputText/inputText.css";
+import "./inputColor.css";
 
 export default function InputColor(props) {
   let { css } = useContext(CssContext);
   let { setCss } = useContext(CssContext);
 
-  const data = css[props.id - 1];
+  const data = css.find((item) => item.id === props.id);
 
   const updateCss = () => {
     setCss(addColor());
@@ -47,9 +49,9 @@ export default function InputColor(props) {
 
   function removeColor(id) {
     css = JSON.parse(localStorage.getItem("css"));
-    let arr = css[props.id - 1].color;
+    let arr = data.color;
     let newArr = arr.filter((c) => c.cId !== id);
-    css[props.id - 1].color = newArr;
+    data.color = newArr;
     localStorage.setItem("css", JSON.stringify(css));
     setCss(css);
   }
@@ -73,66 +75,92 @@ export default function InputColor(props) {
             radioName1="solid"
             label1="Sólido"
             radioName2="linear-gradient"
-            label2="degra. Linea"
+            label2="degradado Lineal"
             radioName3="radial-gradient"
-            label3="degra. Radio"
+            label3="degradado Radial"
           />
-          {css[props.id - 1].colorMode === "solid" ? (
-            <div>
-              <InputColorForm
-                inputData={css[props.id - 1].color[0].c}
-                colorId={color[0].cId}
-                inputId={props.id - 1}
-              />
-              <InputOpacityForm
-                inputData={css[props.id - 1].color[0].t}
-                colorId={color[0].cId}
-                inputId={props.id - 1}
-              />
+          {data.colorMode === "solid" ? (
+            <div className="wrapperColor">
+              <div className="colorsInputs">
+                <div className="cssFormArticle gradiantColor">
+                  <InputColorForm
+                    inputData={data.color[0].c}
+                    colorId={color[0].cId}
+                    inputId={data.id}
+                  />
+                </div>
+                <div className="cssFormArticle gradiantColor">
+                  <InputOpacityForm
+                    inputData={data.color[0].t}
+                    colorId={color[0].cId}
+                    inputId={data.id}
+                  />
+                </div>
+              </div>
             </div>
           ) : (
             <div>
-              {css[css[props.id - 1].id - 1].color.map((color) => (
-                <div key={color.cId}>
-                  <InputColorForm
-                    inputData={color.c}
-                    colorId={color.cId}
-                    inputId={props.id - 1}
-                  />
-                  <InputOpacityForm
-                    inputData={color.t}
-                    colorId={color.cId}
-                    inputId={props.id - 1}
-                  />
-                  {color.cId === 1 ? (
-                    <div></div>
-                  ) : (
-                    <div onClick={() => removeColor(color.cId)}>
-                      Eliminar Color
-                    </div>
-                  )}
-                </div>
-              ))}
-              {css[props.id - 1].colorMode === "radialGradient" ? (
+              {data.colorMode === "radialGradient" ? (
                 <div></div>
               ) : (
-                <InputText
-                  inputData={css.linearGradientDirection}
-                  inputId={props.id}
-                  inputKey="linearGradientDirection"
-                  inputLabel={"Dirección del degradado"}
-                  inputType="number"
-                  minNumber="0"
-                  maxNumber="360"
-                />
+                <div className="cssFormArticle">
+                  <InputText
+                    inputData={css.linearGradientDirection}
+                    inputId={props.id}
+                    inputKey="linearGradientDirection"
+                    inputLabel={"Dirección del degradado"}
+                    inputType="number"
+                    minNumber="0"
+                    maxNumber="360"
+                  />
+                </div>
               )}
+
+              <div className="wrapperColor">
+                {data.color.map((color) => (
+                  <div key={color.cId} className="colorsInputs">
+                    <div className="cssFormArticle gradiantColor">
+                      <InputColorForm
+                        inputData={color.c}
+                        colorId={color.cId}
+                        inputId={data.id}
+                      />
+                    </div>
+                    <div className="cssFormArticle gradiantColor">
+                      <InputOpacityForm
+                        inputData={color.t}
+                        colorId={color.cId}
+                        inputId={data.id}
+                      />
+                    </div>
+                    {color.cId === 1 ? (
+                      <div className="cssFormArticle gradiantColorType">
+                        {" "}
+                        principal
+                      </div>
+                    ) : (
+                      <div
+                        onClick={() => removeColor(color.cId)}
+                        className="cssFormArticle gradiantColorType"
+                      >
+                        Borrar
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
-          {css[props.id - 1].colorMode === "solid" ? (
+
+          {data.colorMode === "solid" ? (
             <div></div>
           ) : (
-            <div onClick={addColor} onClick={updateCss}>
-              Añadir Color
+            <div
+              onClick={addColor}
+              onClick={updateCss}
+              className="cssFormArticle addColor"
+            >
+              + Añadir Color
             </div>
           )}
         </Provider>
